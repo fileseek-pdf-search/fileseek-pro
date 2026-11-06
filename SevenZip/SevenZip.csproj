@@ -1,0 +1,61 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <LangVersion>latest</LangVersion>
+    <OutputType>Library</OutputType>
+    <Platforms>x86;x64;ARM64</Platforms>
+    <AssemblyName>SevenZipSharp</AssemblyName>
+    <AssemblyTitle>SevenZipSharp</AssemblyTitle>
+    <Company>Markovtsev Vadim</Company>
+    <Product>SevenZipSharp</Product>
+    <Description>7-zip native library wrapper</Description>
+    <Copyright>Copyright (C) Markovtsev Vadim 2009, 2010, licensed under LGPLv3</Copyright>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>false</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <DefineConstants>$(DefineConstants);UNMANAGED</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|ARM64'">
+    <PlatformTarget>ARM64</PlatformTarget>
+    <DefineConstants>$(DefineConstants);UNMANAGED</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <PlatformTarget>x64</PlatformTarget>
+    <DefineConstants>$(DefineConstants);UNMANAGED</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|ARM64'">
+    <PlatformTarget>ARM64</PlatformTarget>
+    <DefineConstants>$(DefineConstants);UNMANAGED</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <DefineConstants>$(DefineConstants);UNMANAGED</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x86'">
+    <PlatformTarget>x86</PlatformTarget>
+    <DefineConstants>$(DefineConstants);UNMANAGED</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="arch\Test.txt" />
+    <Content Include="gpl.txt" />
+    <Content Include="lgpl.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="arch\Test.bzip2.7z" />
+    <EmbeddedResource Include="arch\Test.lzma.7z" />
+    <EmbeddedResource Include="arch\Test.lzma2.7z" />
+    <EmbeddedResource Include="arch\Test.ppmd.7z" />
+    <EmbeddedResource Include="arch\Test.rar" />
+    <EmbeddedResource Include="arch\Test.tar" />
+    <EmbeddedResource Include="arch\Test.txt.bz2" />
+    <EmbeddedResource Include="arch\Test.txt.gz" />
+    <EmbeddedResource Include="arch\Test.txt.xz" />
+    <EmbeddedResource Include="arch\Test.zip" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="System.Configuration.ConfigurationManager" Version="10.0.13" />
+  </ItemGroup>
+</Project>
